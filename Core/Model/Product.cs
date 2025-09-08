@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Model
 {
@@ -23,6 +18,9 @@ namespace Core.Model
         public decimal Price { get; set; }
 
         public int StockQuantity { get; set; }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     }
